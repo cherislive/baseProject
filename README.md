@@ -13,15 +13,15 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 npm init
 ```
 
-** package.json **
+**package.json**
 >--save-dev 把安装的包和版本号记录到devDependencies对象中   打包工具和测试工具
 >--save     会记录到dependencies对象中                      浏览器中执行的
 
-** 安装eslint 用来检查语法报错 **
+**安装eslint 用来检查语法报错**
 ```
 cnpm install eslint eslint-config-enough eslint-loader --save-dev
 ```
-** npm install **
+**npm install**
 
 #### 安装webpack和它的插件
 ```
@@ -43,7 +43,7 @@ npm install babel-preset-es2015 babel-preset-stage-2 --save-dev
 npm install extract-text-webpack-plugin --save-dev
 ```
 
-** 在开发环境中运行(package.json) **
+**在开发环境中运行(package.json)**
 ```
 {
   "scripts": {
