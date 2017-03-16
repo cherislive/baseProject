@@ -101,6 +101,12 @@ module.exports = function(env = {}){
       loader: ['css-loader?minimize&-autoprefixer', 'postcss-loader']
     })    
   },{
+    test: /\.less$/,
+    use: ExtractTextPlugin.extract({ 
+      fallbackLoader: 'style-loader', 
+      loader: ['css-loader!less-loader?minimize&-autoprefixer', 'postcss-loader']
+    })    
+  },{
     test: /favicon\.png$/,    // 匹配favicon.png
     use: [{
       loader: 'file-loader',
@@ -134,18 +140,17 @@ module.exports = function(env = {}){
     }]
   });
 
-
   return {
     performance: { // 开发环境关闭performance.hints
       hints: env.production ? 'warning' : false
     },
     entry: {
-      app: './src/main'
+      app: './src/main.js'
     },
     output: {
       filename: utils.assetsPath(env.production ? `js/${name}.js?t=[chunkhash]` : `js/${name}.js`),
       path: resolve(__dirname, './dist'),
-      publicPath: './',
+      publicPath: '/',
       library: `${library}`,
       libraryTarget: 'umd'
     },
@@ -158,9 +163,9 @@ module.exports = function(env = {}){
 
     devServer: {
       // port: 8100,
+      inline: true, //实时刷新  
       /*
       historyApiFallback用来配置页面的重定向
-
       SPA的入口是一个统一的html文件, 比如
       http://localhost:8010/foo
       我们要返回给它
@@ -168,13 +173,8 @@ module.exports = function(env = {}){
       这个文件
 
       配置为true, 当访问的文件不存在时, 返回根目录下的index.html文件
-      */
-      historyApiFallback: true,   
-      inline: true, //实时刷新  
-      // 指定index.html文件的url路径
-      historyApiFallback: {
-        index: '/static/'
-      }
+      */ 
+      historyApiFallback: true
       // proxy: {
       //   "*": `http://localhost:${proxyPort}`
       // }
