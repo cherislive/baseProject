@@ -1,3 +1,11 @@
+/*    "dev": "webpack-dev-server -d --hot --env.dev --port 8097",
+    "build": "rm -rf dist && webpack --env.production"
+
+    "dev": "node build/dev-server.js",
+    "build": "node build/build.js"
+*/
+
+
 module.exports = function(env = {}){
 
   const webpack           = require('webpack'),
@@ -72,7 +80,7 @@ module.exports = function(env = {}){
   },{
     test: /\.html$/,
     use:[{
-      loader: 'html-loader?minimize',
+      loader: 'html-loader',
       options: {
         /*
         html-loader接受attrs参数, 表示什么标签的什么属性需要调用webpack的loader进行打包.
@@ -162,7 +170,6 @@ module.exports = function(env = {}){
     },
 
     devServer: {
-      host: '0.0.0.0',  // 开发环境允许其他电脑访问
       // port: 8100,
       inline: true, //实时刷新  
       /*

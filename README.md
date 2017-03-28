@@ -17,6 +17,8 @@ npm init
 --save-dev 把安装的包和版本号记录到devDependencies对象中   打包工具和测试工具
 --save     会记录到dependencies对象中                      浏览器中执行的
 
+npm install fastclick --save
+
 **安装eslint 用来检查语法报错**
 ```
 cnpm install eslint eslint-config-enough eslint-loader --save-dev
@@ -56,4 +58,6 @@ npm install extract-text-webpack-plugin --save-dev
 --hot 开启热更新功能, 参数会帮我们往配置里添加HotModuleReplacementPlugin插件, 虽然可以在配置里自己写, 但有点麻烦, 用命令行参数方便很多.
 -p参数会开启生产环境模式, 这个模式下webpack会将代码做压缩等优化.
 --port 指定端口
+
+
 

@@ -1,8 +1,6 @@
 // 引入作为全局对象储存空间的global.js, js文件可以省略后缀
 import g from './global'
 
-console.log(env.dev)
-
 // 引入页面文件
 import foo from './views/foo'
 import bar from './views/bar'
